@@ -159,7 +159,7 @@ fetch("data/destinations.json")
     // 1. Un groupe de calques pour tous les lieux
     const lieuxLayer = L.layerGroup().addTo(map);
 
-    // 2. Un marqueur par destination
+    // 2. Un marqueur par destination, avec sa fiche
     destinations.forEach((lieu) => {
       const icone = icones[lieu.categorie] || icones.site;
 
