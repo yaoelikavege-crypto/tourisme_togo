@@ -12,7 +12,8 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution:
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 
-  maxZoom: 60,
+  maxZoom: 19,
+  maxNativeZoom: 19,
 }).addTo(map);
 
 // =====================================
@@ -101,6 +102,50 @@ Promise.all([fetch("data/togo.geojson"), fetch("data/togo_regions.geojson")])
     console.error("Erreur de chargement :", error);
   });
 
+// =====================================
+// 4. FICHES DES VILLES ET DES SITES
+// =====================================
+
+// Icônes distinctes : une pastille bleue pour les villes, verte pour les sites
+const icones = {
+  ville: L.divIcon({
+    className: "marqueur-ville",
+    html: '<span class="pastille pastille-ville"></span>',
+    iconSize: [18, 18],
+    iconAnchor: [9, 9],
+    popupAnchor: [0, -10],
+  }),
+
+  site: L.divIcon({
+    className: "marqueur-site",
+    html: '<span class="pastille pastille-site"></span>',
+    iconSize: [18, 18],
+    iconAnchor: [9, 9],
+    popupAnchor: [0, -10],
+  }),
+};
+
+// Le contenu HTML d'une fiche : photo si elle existe, sinon un bloc de remplacement
+function construireFiche(lieu) {
+  const photo = lieu.image
+    ? `<img class="fiche-photo" src="${lieu.image}" alt="${lieu.nom}">`
+    : `<div class="fiche-photo fiche-sans-photo">Photo à venir</div>`;
+
+  const libelleCategorie = lieu.categorie === "ville" ? "Ville" : "Site touristique";
+
+  return `
+    <article class="fiche">
+      ${photo}
+      <div class="fiche-texte">
+        <h3 class="fiche-titre">${lieu.nom}</h3>
+        <p class="fiche-meta">${libelleCategorie} · Région ${lieu.region}</p>
+        <p class="fiche-description">${lieu.description}</p>
+      </div>
+    </article>
+  `;
+}
+
+// Chargement des destinations puis création des marqueurs
 fetch("data/destinations.json")
   .then((response) => {
     if (!response.ok) {
@@ -111,22 +156,20 @@ fetch("data/destinations.json")
   })
 
   .then((destinations) => {
-    console.log(destinations);
+    // 1. Un groupe de calques pour tous les lieux
+    const lieuxLayer = L.layerGroup().addTo(map);
 
-    // 1. Création d'un groupe de calques pour les villes
-    const villeLayer = L.layerGroup().addTo(map);
+    // 2. Un marqueur par destination
+    destinations.forEach((lieu) => {
+      const icone = icones[lieu.categorie] || icones.site;
 
-    // 2. Boucle sur les destinations pour créer des marqueurs
-    destinations.forEach((ville) => {
-      if (ville.categorie === "ville") {
-        L.marker([ville.latitude, ville.longitude]).addTo(villeLayer)
-          .bindPopup(`
-            <h3>${ville.nom}</h3>
-            <p>${ville.description}</p>
-            <p>Region: ${ville.region}</p>
-            `);
-      }
+      L.marker([lieu.latitude, lieu.longitude], { icon: icone })
+        .addTo(lieuxLayer)
+        .bindPopup(construireFiche(lieu), { maxWidth: 280 })
+        .bindTooltip(lieu.nom);
     });
+
+    console.log(`${destinations.length} lieu(x) ajouté(s) à la carte.`);
   })
 
   .catch((error) => {
