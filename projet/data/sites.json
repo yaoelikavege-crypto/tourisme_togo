@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "nom": "Cascade de Womé",
+        "categorie": "site",
+        "statut": null,
+        "region": "Plateaux",
+        "latitude": 6.8584,
+        "longitude": 0.5548,
+        "population": null,
+        "description": "Cascade à plusieurs paliers nichée dans la forêt, à une dizaine de kilomètres de Kpalimé. Trois bassins naturels permettent la baignade.",
+        "image": "assets/images/sites/cascade_wome.jpg"
+    }
+]

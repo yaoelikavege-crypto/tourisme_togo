@@ -94,3 +94,49 @@ h1 {
 .leaflet-popup-content {
     margin: 10px;
 }
+
+/* =====================================
+   ÉTIQUETTES DE STATUT
+   ===================================== */
+
+.etiquette {
+    display: inline-block;
+    padding: 2px 7px;
+    margin-right: 6px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.etiquette-capitale {
+    background: #c44936;
+}
+
+.etiquette-chef-lieu {
+    background: #d99a22;
+}
+
+.etiquette-ville {
+    background: #64748b;
+}
+
+.etiquette-site {
+    background: #176b45;
+}
+
+.fiche-population {
+    margin: 8px 0 0;
+    font-size: 12px;
+    color: #64748b;
+}
+
+/* La ligne statut + région ne doit pas paraître coupée */
+.fiche-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+}
