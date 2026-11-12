@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "nom": "Lomé",
+        "categorie": "ville",
+        "region": "Maritime",
+        "latitude": 6.1300,
+        "longitude": 1.2158,
+        "description": "Capitale économique et administrative du Togo.",
+        "image": null
+    },
+    {
+        "id": 2,
+        "nom": "Kpalimé",
+        "categorie": "ville",
+        "region": "Plateaux",
+        "latitude": 6.9100,
+        "longitude": 0.6333,
+        "description": "Ville touristique connue pour ses paysages montagneux.",
+        "image": null
+    }
+]
