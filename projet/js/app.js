@@ -103,7 +103,7 @@ Promise.all([fetch("data/togo.geojson"), fetch("data/togo_regions.geojson")])
   });
 
 // =====================================
-// 4. FICHES DES VILLES ET DES SITES
+// 4. VILLES ET SITES
 // =====================================
 
 // Icônes distinctes : une pastille bleue pour les villes, verte pour les sites
@@ -125,42 +125,81 @@ const icones = {
   }),
 };
 
+// Habillage d'une ville : capitale, chef-lieu ou simple ville
+const libellesStatut = {
+  capitale: { texte: "Capitale", classe: "etiquette-capitale" },
+  "chef-lieu": { texte: "Chef-lieu de région", classe: "etiquette-chef-lieu" },
+  ville: { texte: "Ville", classe: "etiquette-ville" },
+};
+
+// 2 188 376 -> "2 188 376 hab."
+function formaterPopulation(nombre) {
+  if (!nombre) {
+    return "";
+  }
+
+  return `${nombre.toLocaleString("fr-FR")} hab.`;
+}
+
 // Le contenu HTML d'une fiche : photo si elle existe, sinon un bloc de remplacement
 function construireFiche(lieu) {
   const photo = lieu.image
     ? `<img class="fiche-photo" src="${lieu.image}" alt="${lieu.nom}">`
     : `<div class="fiche-photo fiche-sans-photo">Photo à venir</div>`;
 
-  const libelleCategorie = lieu.categorie === "ville" ? "Ville" : "Site touristique";
+  // Une ville affiche son statut (capitale / chef-lieu / ville), un site son type
+  let etiquette = "Site touristique";
+  let classeEtiquette = "etiquette-site";
+
+  if (lieu.categorie === "ville") {
+    const statut = libellesStatut[lieu.statut] || libellesStatut.ville;
+    etiquette = statut.texte;
+    classeEtiquette = statut.classe;
+  }
+
+  const population = formaterPopulation(lieu.population);
 
   return `
     <article class="fiche">
       ${photo}
       <div class="fiche-texte">
         <h3 class="fiche-titre">${lieu.nom}</h3>
-        <p class="fiche-meta">${libelleCategorie} · Région ${lieu.region}</p>
+        <p class="fiche-meta">
+          <span class="etiquette ${classeEtiquette}">${etiquette}</span>
+          Région ${lieu.region}
+        </p>
         <p class="fiche-description">${lieu.description}</p>
+        ${population ? `<p class="fiche-population">${population}</p>` : ""}
       </div>
     </article>
   `;
 }
 
-// Chargement des destinations puis création des marqueurs
-fetch("data/destinations.json")
-  .then((response) => {
+// Chargement d'un fichier JSON avec vérification de la réponse HTTP
+function chargerLieux(url) {
+  return fetch(url).then((response) => {
     if (!response.ok) {
-      throw new Error("Impossible de charger les destinations");
+      throw new Error(`Impossible de charger ${url}`);
     }
 
     return response.json();
-  })
+  });
+}
 
-  .then((destinations) => {
+// Villes et sites sont dans deux fichiers séparés : le socle, puis les détails
+Promise.all([
+  chargerLieux("data/villes.json"),
+  chargerLieux("data/sites.json"),
+])
+
+  .then(([villes, sites]) => {
     // 1. Un groupe de calques pour tous les lieux
     const lieuxLayer = L.layerGroup().addTo(map);
 
-    // 2. Un marqueur par destination, avec sa fiche
-    destinations.forEach((lieu) => {
+    // 2. Un marqueur par lieu, ville ou site
+    const lieux = villes.concat(sites);
+
+    lieux.forEach((lieu) => {
       const icone = icones[lieu.categorie] || icones.site;
 
       L.marker([lieu.latitude, lieu.longitude], { icon: icone })
@@ -169,7 +208,7 @@ fetch("data/destinations.json")
         .bindTooltip(lieu.nom);
     });
 
-    console.log(`${destinations.length} lieu(x) ajouté(s) à la carte.`);
+    console.log(`${villes.length} ville(s) et ${sites.length} site(s) ajoutés à la carte.`);
   })
 
   .catch((error) => {

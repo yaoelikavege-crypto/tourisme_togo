@@ -26,9 +26,11 @@ Le projet est une application **100 % statique** (HTML / CSS / JavaScript) qui s
 - **Frontière nationale** du Togo tracée par-dessus les régions, avec cadrage automatique
   (`fitBounds`) sur le territoire.
 - **Infobulles et popups** au survol / clic sur chaque région.
-- **Marqueurs des villes** chargés dynamiquement depuis `data/destinations.json`
-  (nom, description, région).
-- **Fiches cliquables** : photo, catégorie, région et description pour chaque lieu.
+- **24 villes recensées** dans `data/villes.json`, des 5 chefs-lieux de région aux villes
+  secondaires, avec statut (capitale / chef-lieu / ville), population (recensement 2022)
+  et description.
+- **Sites touristiques** recensés séparément dans `data/sites.json`.
+- **Fiches cliquables** : photo, étiquette de statut, région, description et population.
 - **Repli robuste** : vérification des réponses HTTP et messages d'erreur en console.
 
 ---
@@ -71,31 +73,58 @@ tourisme_togo/
     ├── css/style.css                styles de la page, du conteneur #map et des fiches
     ├── js/app.js                    initialisation Leaflet + chargement des GeoJSON
     ├── data/
-    │   ├── destinations.json        sites et villes à afficher (nom, coordonnées, description)
+    │   ├── villes.json              24 villes (statut, population, description)
+    │   ├── sites.json               sites touristiques (cascades, patrimoine…)
     │   ├── togo.geojson             frontière nationale du Togo (Feature / Polygon)
     │   └── togo_regions.geojson     les 5 régions ADM1 (FeatureCollection)
     └── assets/images/sites/         photos des sites touristiques
 ```
 
-### Ajouter un site touristique
+### Comment le recensement est organisé
 
-Il suffit d'éditer `data/destinations.json` :
+Deux fichiers, deux responsabilités : **le socle** (les villes, la charpente du pays) et
+**les détails** (les sites à visiter). Les identifiants `id` sont uniques **par fichier**.
+
+Une **ville** (`data/villes.json`) :
 
 ```json
 {
-  "id": 3,
-  "nom": "Cascade de Womé",
-  "categorie": "site",
+  "id": 15,
+  "nom": "Kpalimé",
+  "categorie": "ville",
+  "statut": "ville",
   "region": "Plateaux",
-  "latitude": 6.9333,
-  "longitude": 0.5833,
-  "description": "Cascade enchâssée dans la forêt, près de Kpalimé.",
-  "image": "assets/images/sites/cascade_wome.jpg"
+  "latitude": 6.9107,
+  "longitude": 0.6324,
+  "population": 87478,
+  "description": "Capitale touristique du Togo : climat frais, cascades, mont Agou.",
+  "image": "assets/images/sites/kpalime_vu_haut.jpg"
 }
 ```
 
-> ℹ️ Seules les entrées dont `categorie` vaut `"ville"` affichent actuellement un marqueur
-> (voir `js/app.js`). Étendre ce filtre permet d'afficher aussi les sites naturels.
+`statut` accepte trois valeurs : `"capitale"`, `"chef-lieu"` ou `"ville"` (défaut).
+Le champ `population` (recensement 2022) est facultatif ; `image` peut valoir `null`,
+la fiche affiche alors « Photo à venir ».
+
+Un **site** (`data/sites.json`) :
+
+```json
+{
+  "id": 2,
+  "nom": "Koutammakou",
+  "categorie": "site",
+  "statut": null,
+  "region": "Kara",
+  "latitude": 9.7667,
+  "longitude": 1.0333,
+  "population": null,
+  "description": "Pays des Batammariba, inscrit au patrimoine mondial de l'UNESCO.",
+  "image": null
+}
+```
+
+> ℹ️ **Méthode recommandée** : recenser d'abord toutes les villes (le squelette), puis
+> remplir les sites, puis les photos. On ne bloque jamais sur une image manquante.
 
 ---
 
