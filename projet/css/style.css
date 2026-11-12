@@ -51,6 +51,7 @@ h1 {
     height: 145px;
     object-fit: cover;
     border-radius: 6px;
+    object-fit: cover;   /* remplit la zone, quitte à rogner */
 }
 
 .fiche-sans-photo {
