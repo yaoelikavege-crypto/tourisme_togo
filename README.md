@@ -10,7 +10,7 @@ Le projet est une application **100 % statique** (HTML / CSS / JavaScript) qui s
 
 ---
 
-## ✨ Fonctionnalités
+## Fonctionnalités
 
 - **Fond de carte** OpenStreetMap via Leaflet 1.9.4 (CDN, aucune installation).
 - **Les 5 régions administratives** du Togo dessinées et colorées selon une palette touristique :
@@ -35,7 +35,7 @@ Le projet est une application **100 % statique** (HTML / CSS / JavaScript) qui s
 
 ---
 
-## 🚀 Lancer le projet en local
+##Lancer le projet en local
 
 L'application charge des fichiers `.json` / `.geojson` par `fetch()` : **ouvrir `index.html`
 directement par double-clic ne fonctionne pas** (restrictions `file://` du navigateur).
@@ -54,7 +54,7 @@ npx serve .
 
 Puis ouvrir <http://localhost:8000> dans le navigateur.
 
-> ⚠️ **Règle — la casse des noms de fichiers compte.**
+> **Règle — la casse des noms de fichiers compte.**
 > Sous Linux et sur GitHub Pages, `CSS/style.css` et `css/style.css` sont deux fichiers
 > différents. Tous les dossiers du projet sont en minuscules (`css/`, `js/`, `data/`,
 > `assets/`). Windows masque ce piège : ne vous y fiez pas.
