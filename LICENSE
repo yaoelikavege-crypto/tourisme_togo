@@ -1,0 +1,44 @@
+MIT License
+
+Copyright (c) 2026 Yao Elis Kavege et les contributeurs du projet Togo Tourisme
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+Note sur les données et contenus tiers
+=====================================
+
+Cette licence s'applique au code source de l'application (HTML, CSS, JavaScript,
+documentation). Elle ne couvre PAS :
+
+1. Les données géographiques issues de geo-countries / Natural Earth, distribuées
+   sous Open Data Commons Public Domain Dedication and License (ODC-PDDL 1.0).
+   Attribution : Natural Earth, Lexman et l'Open Knowledge Foundation.
+
+2. Le fond de carte OpenStreetMap, © OpenStreetMap contributors, distribué sous
+   Open Database License (ODbL) — https://www.openstreetmap.org/copyright
+
+3. Les jeux de données GADM et OCHA utilisés pour dériver les contours,
+   soumis à leurs conditions d'utilisation propres (GADM : usage non commercial).
+
+4. Les photographies des sites touristiques, dont les droits appartiennent à
+   leurs auteurs respectifs.
+
+Toute redistribution de l'application doit conserver ces attributions.

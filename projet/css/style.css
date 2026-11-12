@@ -1,0 +1,95 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* Conteneur de la carte */
+#map {
+    width: 100%;
+    height: 600px;
+}
+
+/* =====================================
+   MARQUEURS (villes / sites)
+   ===================================== */
+
+.pastille {
+    display: block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+    box-sizing: border-box;
+}
+
+.pastille-ville {
+    background: #168aad;
+}
+
+.pastille-site {
+    background: #176b45;
+}
+
+/* =====================================
+   FICHE DANS LA POPUP
+   ===================================== */
+
+.fiche {
+    width: 260px;
+    font-family: Arial, sans-serif;
+}
+
+.fiche-photo {
+    display: block;
+    width: 100%;
+    height: 145px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.fiche-sans-photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e8edf1;
+    color: #64748b;
+    font-size: 13px;
+    font-style: italic;
+}
+
+.fiche-texte {
+    padding: 8px 2px 2px;
+}
+
+.fiche-titre {
+    margin: 0 0 4px;
+    font-size: 17px;
+    color: #263746;
+}
+
+.fiche-meta {
+    margin: 0 0 8px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: #168aad;
+    font-weight: bold;
+}
+
+.fiche-description {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.45;
+    color: #3b4a57;
+}
+
+/* La popup de Leaflet a des marges internes : on les réduit */
+.leaflet-popup-content {
+    margin: 10px;
+}
