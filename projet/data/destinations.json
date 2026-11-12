@@ -7,7 +7,7 @@
         "latitude": 6.13,
         "longitude": 1.2158,
         "description": "Capitale économique et administrative du Togo.",
-        "image": null
+        "image": "assets/images/sites/lome_vu_haut.jpg"
     },
     {
         "id": 2,
@@ -17,7 +17,7 @@
         "latitude": 6.91,
         "longitude": 0.6333,
         "description": "Ville touristique connue pour ses paysages montagneux.",
-        "image": null
+        "image": "assets/images/sites/kpalime_vu_haut.jpg"
     },
     {
         "id": 3,
