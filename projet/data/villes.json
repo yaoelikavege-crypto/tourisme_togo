@@ -21,7 +21,7 @@
         "longitude": 1.2105,
         "population": 76861,
         "description": "Chef-lieu de la région Maritime, au cœur de la zone agricole du sud. Grand marché et carrefour routier vers le nord.",
-        "image": null
+        "image": "assets/images/sites/tsevie.jpg"
     },
     {
         "id": 3,
@@ -33,7 +33,7 @@
         "longitude": 1.5938,
         "population": null,
         "description": "Ancienne capitale coloniale, à l'embouchure du Mono. Connue pour son architecture afro-brésilienne et ses plages.",
-        "image": null
+        "image": "assets/images/sites/aneho.jpg"
     },
     {
         "id": 4,
@@ -45,7 +45,7 @@
         "longitude": 1.5063,
         "population": null,
         "description": "Centre industriel du sud-est, lié à la production de ciment. Terre de barre fertile et marché régional.",
-        "image": null
+        "image": "assets/images/sites/tabligbo.jpg"
     },
     {
         "id": 5,
@@ -57,7 +57,7 @@
         "longitude": 1.5281,
         "population": null,
         "description": "Chef-lieu historique du pays ouatchi. Célèbre pour son grand marché du lundi et ses traditions.",
-        "image": null
+        "image": "assets/images/sites/vogan.jpg"
     },
     {
         "id": 6,
@@ -69,7 +69,7 @@
         "longitude": 1.1266,
         "population": 98193,
         "description": "Chef-lieu des Plateaux, bâtie sur des collines. Ancien centre de tissage et carrefour de la route nationale.",
-        "image": null
+        "image": "assets/images/sites/atakpame.jpg"
     },
     {
         "id": 7,
@@ -93,7 +93,7 @@
         "longitude": 1.1689,
         "population": null,
         "description": "Ville historique des Ewé, célèbre pour les murailles d'Agbogbo et la fête Agbogbozan.",
-        "image": null
+        "image": "assets/images/sites/notse.jpg"
     },
     {
         "id": 9,
@@ -105,7 +105,7 @@
         "longitude": 0.6086,
         "population": null,
         "description": "À l'ouest de la région, près des chutes de Badou. Zone de café, cacao et forêt dense.",
-        "image": null
+        "image": "assets/images/sites/badou.jpg"
     },
     {
         "id": 10,
@@ -117,7 +117,7 @@
         "longitude": 0.9033,
         "population": null,
         "description": "Carrefour de l'ouest des Plateaux, sur la route de Kpalimé à Atakpamé.",
-        "image": null
+        "image": "assets/images/sites/amlame.jpg"
     },
     {
         "id": 11,
@@ -129,7 +129,7 @@
         "longitude": 1.1965,
         "population": null,
         "description": "Carrefour commercial de l'est des Plateaux, au cœur du pays ifè.",
-        "image": null
+        "image": "assets/images/sites/anie.jpg"
     },
     {
         "id": 12,
@@ -141,7 +141,7 @@
         "longitude": 1.1449,
         "population": 115442,
         "description": "Deuxième ville du pays, capitale du pays tem. Grande fête de l'Adossa chaque année.",
-        "image": null
+        "image": "assets/images/sites/sokode.jpg"
     },
     {
         "id": 13,
@@ -153,7 +153,7 @@
         "longitude": 0.9773,
         "population": 32464,
         "description": "Carrefour du centre du pays, sur l'axe Lomé–Ouagadougou. Marché agricole.",
-        "image": null
+        "image": "assets/images/sites/sotouboua.jpg"
     },
     {
         "id": 14,
@@ -165,7 +165,7 @@
         "longitude": 1.4169,
         "population": null,
         "description": "Petite ville de l'est de la Centrale, au patrimoine culturel tchamba encore vivant.",
-        "image": null
+        "image": "assets/images/sites/tchamba.jpg"
     },
     {
         "id": 15,
@@ -177,7 +177,7 @@
         "longitude": 0.9765,
         "population": null,
         "description": "Terminus de la ligne ferroviaire venue de Lomé. Carrefour agricole du centre du pays.",
-        "image": null
+        "image": "assets/images/sites/blitta.jpg"
     },
     {
         "id": 16,
@@ -189,7 +189,7 @@
         "longitude": 1.1977,
         "population": 158090,
         "description": "Chef-lieu du nord et pays kabyè : montagnes, lutte traditionnelle et fête de l'Evala.",
-        "image": null
+        "image": "assets/images/sites/kara.jpg"
     },
     {
         "id": 17,
@@ -201,7 +201,7 @@
         "longitude": 0.779,
         "population": 33156,
         "description": "Berceau de l'ancienne métallurgie du fer. 30 % de la production de coton du pays.",
-        "image": null
+        "image": "assets/images/sites/bassar.jpg"
     },
     {
         "id": 18,
@@ -213,7 +213,7 @@
         "longitude": 1.1053,
         "population": 27132,
         "description": "Ville du pays lamba, desservie par l'aéroport international du nord du pays.",
-        "image": null
+        "image": "assets/images/sites/niamtougou.jpg"
     },
     {
         "id": 19,
@@ -225,7 +225,7 @@
         "longitude": 1.2482,
         "population": null,
         "description": "Connue pour ses chutes d'eau et son tissage traditionnel, au pied des monts.",
-        "image": null
+        "image": "assets/images/sites/bafilo.jpg"
     },
     {
         "id": 20,
@@ -237,7 +237,7 @@
         "longitude": 1.0443,
         "population": null,
         "description": "Porte d'entrée du Koutammakou, pays des Batammariba. Marché de la préfecture de la Kéran.",
-        "image": null
+        "image": "assets/images/sites/kande.jpg"
     },
     {
         "id": 21,
@@ -249,7 +249,7 @@
         "longitude": 0.6108,
         "population": null,
         "description": "Chef-lieu de la préfecture de la Doufelgou, dans les collines de l'ouest de la Kara.",
-        "image": null
+        "image": "assets/images/sites/guerin_kouka.jpg"
     },
     {
         "id": 22,
@@ -261,7 +261,7 @@
         "longitude": 0.2076,
         "population": 117675,
         "description": "Chef-lieu des Savanes, au nord du pays. Musée régional et grottes de Nano à proximité.",
-        "image": null
+        "image": "assets/images/sites/dapaong.jpg"
     },
     {
         "id": 23,
@@ -273,7 +273,7 @@
         "longitude": 0.477,
         "population": 34791,
         "description": "Chef-lieu de l'Oti, au bord du fleuve. Marché important du nord-est.",
-        "image": null
+        "image": "assets/images/sites/mango.jpg"
     },
     {
         "id": 24,
@@ -285,6 +285,6 @@
         "longitude": 0.0157,
         "population": null,
         "description": "Poste frontière avec le Burkina Faso : point le plus septentrional du Togo.",
-        "image": null
+        "image": "assets/images/sites/cinkasse.jpg"
     }
 ]
