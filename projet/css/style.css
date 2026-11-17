@@ -140,3 +140,37 @@ h1 {
     flex-wrap: wrap;
     gap: 4px;
 }
+/*Personnalisation visuelle des sites touristiques */
+.pastille-site {
+    background: #176b45;
+}
+
+/* Sites nature : vert forêt, pastille ronde */
+.pastille-site-nature {
+    background: #176b45;
+}
+
+/* Patrimoine : ocre terre, en losange */
+.pastille-site-patrimoine {
+    background: #b5651d;
+    border-radius: 3px;
+    transform: rotate(45deg);
+}
+
+/* Plages : bleu lagon, en goutte (bord supérieur arrondi) */
+.pastille-site-plage {
+    background: #168aad;
+    border-radius: 9px 9px 9px 2px;
+}
+
+.etiquette-nature {
+    background: #176b45;
+}
+
+.etiquette-patrimoine {
+    background: #b5651d;
+}
+
+.etiquette-plage {
+    background: #168aad;
+}

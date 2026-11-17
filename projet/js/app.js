@@ -107,22 +107,23 @@ Promise.all([fetch("data/togo.geojson"), fetch("data/togo_regions.geojson")])
 // =====================================
 
 // Icônes distinctes : une pastille bleue pour les villes, verte pour les sites
-const icones = {
-  ville: L.divIcon({
-    className: "marqueur-ville",
-    html: '<span class="pastille pastille-ville"></span>',
+// Icônes distinctes : bleu pour les villes, puis une couleur par type de site
+function pastille(nom) {
+  return L.divIcon({
+    className: `marqueur-${nom}`,
+    html: `<span class="pastille pastille-${nom}"></span>`,
     iconSize: [18, 18],
     iconAnchor: [9, 9],
     popupAnchor: [0, -10],
-  }),
+  });
+}
 
-  site: L.divIcon({
-    className: "marqueur-site",
-    html: '<span class="pastille pastille-site"></span>',
-    iconSize: [18, 18],
-    iconAnchor: [9, 9],
-    popupAnchor: [0, -10],
-  }),
+const icones = {
+  ville: pastille("ville"),
+  site: pastille("site"),
+  "site-nature": pastille("site-nature"),
+  "site-patrimoine": pastille("site-patrimoine"),
+  "site-plage": pastille("site-plage"),
 };
 
 // Habillage d'une ville : capitale, chef-lieu ou simple ville
@@ -130,6 +131,13 @@ const libellesStatut = {
   capitale: { texte: "Capitale", classe: "etiquette-capitale" },
   "chef-lieu": { texte: "Chef-lieu de région", classe: "etiquette-chef-lieu" },
   ville: { texte: "Ville", classe: "etiquette-ville" },
+};
+
+// Habillage d'un site selon son type
+const libellesTypeSite = {
+  nature: { texte: "Site naturel", classe: "etiquette-nature" },
+  patrimoine: { texte: "Patrimoine", classe: "etiquette-patrimoine" },
+  plage: { texte: "Plage", classe: "etiquette-plage" },
 };
 
 // 2 188 376 -> "2 188 376 hab."
@@ -148,14 +156,16 @@ function construireFiche(lieu) {
     : `<div class="fiche-photo fiche-sans-photo">Photo à venir</div>`;
 
   // Une ville affiche son statut (capitale / chef-lieu / ville), un site son type
-  let etiquette = "Site touristique";
-  let classeEtiquette = "etiquette-site";
+  const libelle =
+    lieu.categorie === "ville"
+      ? libellesStatut[lieu.statut] || libellesStatut.ville
+      : libellesTypeSite[lieu.type] || {
+          texte: "Site touristique",
+          classe: "etiquette-site",
+        };
 
-  if (lieu.categorie === "ville") {
-    const statut = libellesStatut[lieu.statut] || libellesStatut.ville;
-    etiquette = statut.texte;
-    classeEtiquette = statut.classe;
-  }
+  const etiquette = libelle.texte;
+  const classeEtiquette = libelle.classe;
 
   const population = formaterPopulation(lieu.population);
 
@@ -187,10 +197,7 @@ function chargerLieux(url) {
 }
 
 // Villes et sites sont dans deux fichiers séparés : le socle, puis les détails
-Promise.all([
-  chargerLieux("data/villes.json"),
-  chargerLieux("data/sites.json"),
-])
+Promise.all([chargerLieux("data/villes.json"), chargerLieux("data/sites.json")])
 
   .then(([villes, sites]) => {
     // 1. Un groupe de calques pour tous les lieux
@@ -200,15 +207,21 @@ Promise.all([
     const lieux = villes.concat(sites);
 
     lieux.forEach((lieu) => {
-      const icone = icones[lieu.categorie] || icones.site;
-
+      // Un site utilise son type (nature / patrimoine / plage) pour choisir sa couleur
+      const cle =
+        lieu.categorie === "site" && lieu.type
+          ? `site-${lieu.type}`
+          : lieu.categorie;
+      const icone = icones[cle] || icones.site;
       L.marker([lieu.latitude, lieu.longitude], { icon: icone })
         .addTo(lieuxLayer)
         .bindPopup(construireFiche(lieu), { maxWidth: 280 })
         .bindTooltip(lieu.nom);
     });
 
-    console.log(`${villes.length} ville(s) et ${sites.length} site(s) ajoutés à la carte.`);
+    console.log(
+      `${villes.length} ville(s) et ${sites.length} site(s) ajoutés à la carte.`,
+    );
   })
 
   .catch((error) => {
