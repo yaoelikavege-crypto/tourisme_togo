@@ -196,20 +196,144 @@ function chargerLieux(url) {
   });
 }
 
+// =====================================
+// 5. LISTE LATÉRALE, DEUX ONGLETS
+// =====================================
+
+// Ordre alphabétique français, accents compris
+function comparerNoms(a, b) {
+  return a.nom.localeCompare(b.nom, "fr");
+}
+
+// Étiquette d'un lieu : statut pour une ville, type pour un site
+function etiquetteDe(lieu) {
+  if (lieu.categorie === "ville") {
+    const statut = libellesStatut[lieu.statut] || libellesStatut.ville;
+    return { texte: statut.texte, classe: statut.classe };
+  }
+
+  return (
+    libellesTypeSite[lieu.type] || {
+      texte: "Site touristique",
+      classe: "etiquette-site",
+    }
+  );
+}
+
+// Construit une entrée de liste ; cliquer dessus centre la carte sur le lieu
+function creerEntreeListe(lieu, groupes) {
+  const etiquette = etiquetteDe(lieu);
+  const entree = document.createElement("li");
+  entree.className = "liste-item";
+  entree.dataset.nom = lieu.nom.toLowerCase();
+  entree.dataset.region = lieu.region.toLowerCase();
+
+  const bouton = document.createElement("button");
+  bouton.className = "liste-bouton";
+  bouton.type = "button";
+
+  // On construit le texte avec textContent : aucune injection de HTML possible
+  const nom = document.createElement("span");
+  nom.className = "liste-nom";
+  nom.textContent = lieu.nom;
+
+  const details = document.createElement("span");
+  details.className = "liste-details";
+  details.textContent = `Région ${lieu.region}`;
+
+  const pastilleEtiquette = document.createElement("span");
+  pastilleEtiquette.className = `etiquette ${etiquette.classe}`;
+  pastilleEtiquette.textContent = etiquette.texte;
+
+  details.prepend(pastilleEtiquette);
+  bouton.append(nom, details);
+  entree.append(bouton);
+
+  bouton.addEventListener("click", () => {
+    // On affiche le groupe qui contient ce lieu, puis on ouvre sa fiche
+    groupes[lieu.categorie].addTo(map);
+    groupes[lieu.categorie].zoomToShowLayer(lieu.marqueur, () => {
+      lieu.marqueur.openPopup();
+    });
+
+    // Sur mobile, le panneau laisse la place à la carte
+    document.body.classList.remove("panneau-ouvert");
+  });
+
+  return entree;
+}
+
+// Remplit la liste selon l'onglet actif et la recherche en cours
+function afficherListe(etat) {
+  const ongletActif = etat.onglet;
+  const recherche = etat.recherche.trim().toLowerCase();
+
+  const lieux = ongletActif === "ville" ? etat.villes : etat.sites;
+
+  const correspondants = lieux
+    .filter((lieu) => {
+      if (!recherche) {
+        return true;
+      }
+
+      return (
+        lieu.nom.toLowerCase().includes(recherche) ||
+        lieu.region.toLowerCase().includes(recherche)
+      );
+    })
+    .sort(comparerNoms);
+
+  etat.liste.innerHTML = "";
+
+  if (correspondants.length === 0) {
+    const vide = document.createElement("li");
+    vide.className = "liste-vide";
+    vide.textContent = "Aucun lieu ne correspond à cette recherche.";
+    etat.liste.append(vide);
+    return;
+  }
+
+  correspondants.forEach((lieu) => {
+    etat.liste.append(creerEntreeListe(lieu, etat.groupes));
+  });
+}
+
+// Bascule l'onglet actif et met à jour les compteurs
+function activerOnglet(etat, categorie) {
+  etat.onglet = categorie;
+
+  document
+    .querySelectorAll(".onglet")
+    .forEach((bouton) => bouton.classList.remove("onglet--actif"));
+
+  const boutonActif = document.querySelector(
+    categorie === "ville" ? "#onglet-villes" : "#onglet-sites",
+  );
+  boutonActif.classList.add("onglet--actif");
+  boutonActif.setAttribute("aria-selected", "true");
+
+  afficherListe(etat);
+}
+
 // Villes et sites sont dans deux fichiers séparés : le socle, puis les détails
 Promise.all([chargerLieux("data/villes.json"), chargerLieux("data/sites.json")])
 
   .then(([villes, sites]) => {
-    // 1. Regroupement : les marqueurs proches fusionnent en un seul rond numéroté.
-    //    Sans ça, les 13 lieux du Grand Lomé s'empilent les uns sur les autres.
-    const lieuxLayer = L.markerClusterGroup({
-      showCoverageOnHover: false, // pas de polygone bleu au survol
-      maxClusterRadius: 45, // rayon de fusion, en pixels
-      spiderfyOnMaxZoom: true, // au zoom max, les marqueurs serrés s'écartent en araignée
-      disableClusteringAtZoom: 13, // au-delà, chaque lieu a son propre marqueur
-    });
+    // 1. Un groupe de marqueurs PAR CATÉGORIE : on peut ainsi afficher
+    //    les villes seules, les sites seuls, ou les deux.
+    const optionsGroupe = {
+      showCoverageOnHover: false,
+      maxClusterRadius: 45,
+      spiderfyOnMaxZoom: true,
+      disableClusteringAtZoom: 13,
+    };
 
-    // 2. Un marqueur par lieu, ville ou site
+    const groupes = {
+      ville: L.markerClusterGroup(optionsGroupe),
+      site: L.markerClusterGroup(optionsGroupe),
+    };
+
+    // 2. Un marqueur par lieu, mémorisé sur le lieu pour la liste latérale
     const lieux = villes.concat(sites);
 
     lieux.forEach((lieu) => {
@@ -220,14 +344,52 @@ Promise.all([chargerLieux("data/villes.json"), chargerLieux("data/sites.json")])
           : lieu.categorie;
       const icone = icones[cle] || icones.site;
 
-      L.marker([lieu.latitude, lieu.longitude], { icon: icone })
+      lieu.marqueur = L.marker([lieu.latitude, lieu.longitude], { icon: icone })
         .bindPopup(construireFiche(lieu), { maxWidth: 280 })
-        .bindTooltip(lieu.nom)
-        .addTo(lieuxLayer);
+        .bindTooltip(lieu.nom);
+
+      groupes[lieu.categorie].addLayer(lieu.marqueur);
     });
 
-    // 3. Un seul ajout à la carte, une fois les marqueurs créés
-    lieuxLayer.addTo(map);
+    // 3. Les deux groupes sont ajoutés : l'onglet décidera de ce qui reste
+    groupes.ville.addTo(map);
+    groupes.site.addTo(map);
+
+    // 4. État de l'interface
+    const etat = {
+      villes: villes,
+      sites: sites,
+      groupes: groupes,
+      onglet: "ville",
+      recherche: "",
+      liste: document.querySelector("#liste"),
+    };
+
+    document.querySelector("#compte-villes").textContent = villes.length;
+    document.querySelector("#compte-sites").textContent = sites.length;
+
+    // 5. Les écouteurs d'événements
+    document
+      .querySelector("#onglet-villes")
+      .addEventListener("click", () => activerOnglet(etat, "ville"));
+
+    document
+      .querySelector("#onglet-sites")
+      .addEventListener("click", () => activerOnglet(etat, "site"));
+
+    document.querySelector("#recherche").addEventListener("input", (evenement) => {
+      etat.recherche = evenement.target.value;
+      // Le bouton ☰ ouvre et referme le panneau sur mobile
+    document
+      .querySelector("#bouton-panneau")
+      .addEventListener("click", () => {
+        document.body.classList.toggle("panneau-ouvert");
+      });
+
+    afficherListe(etat);
+    });
+
+    afficherListe(etat);
 
     console.log(
       `${villes.length} ville(s) et ${sites.length} site(s) ajoutés à la carte.`,

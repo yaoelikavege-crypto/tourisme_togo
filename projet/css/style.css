@@ -27,10 +27,145 @@ h1 {
     color: #64748b;
 }
 
+/* =====================================
+   MISE EN PAGE : PANNEAU + CARTE
+   ===================================== */
+
+.contenu {
+    display: flex;
+    height: calc(100vh - 66px);
+}
+
+/* Panneau latéral */
+.panneau {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    min-width: 320px;
+    background: #ffffff;
+    border-right: 1px solid #e2e8f0;
+}
+
+.panneau-recherche {
+    padding: 10px;
+    border-bottom: 1px solid #eef2f6;
+}
+
+#recherche {
+    width: 100%;
+    padding: 8px 10px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #263746;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+#recherche:focus {
+    outline: 2px solid #168aad;
+    outline-offset: -1px;
+}
+
+/* Onglets Villes / Sites */
+.onglets {
+    display: flex;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.onglet {
+    flex: 1;
+    padding: 10px 6px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: #64748b;
+    background: #f8fafc;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+}
+
+.onglet:hover {
+    background: #eef2f6;
+}
+
+.onglet--actif {
+    color: #263746;
+    background: #ffffff;
+    border-bottom-color: #168aad;
+}
+
+.onglet-compte {
+    display: inline-block;
+    min-width: 18px;
+    padding: 1px 5px;
+    margin-left: 4px;
+    font-size: 11px;
+    color: #ffffff;
+    background: #94a3b8;
+    border-radius: 9px;
+}
+
+.onglet--actif .onglet-compte {
+    background: #168aad;
+}
+
+/* Liste des lieux */
+.liste {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    list-style: none;
+}
+
+.liste-item {
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.liste-bouton {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 100%;
+    padding: 9px 12px;
+    font-family: Arial, sans-serif;
+    text-align: left;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.liste-bouton:hover {
+    background: #f1f5f9;
+}
+
+.liste-nom {
+    font-size: 14px;
+    font-weight: bold;
+    color: #263746;
+}
+
+.liste-details {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #64748b;
+}
+
+.liste-vide {
+    padding: 16px 12px;
+    font-size: 13px;
+    font-style: italic;
+    color: #94a3b8;
+}
+
 /* Conteneur de la carte */
 #map {
-    width: 100%;
-    height: 500px;
+    flex: 1;
+    height: 100%;
 }
 
 /* =====================================
@@ -224,7 +359,12 @@ h1 {
    ADAPTATION MOBILE
    ===================================== */
 
-@media (max-width: 600px) {
+/* Bouton d'ouverture du panneau, caché sur grand écran */
+.bouton-panneau {
+    display: none;
+}
+
+@media (max-width: 760px) {
     .entete {
         padding: 10px 12px 8px;
     }
@@ -237,8 +377,44 @@ h1 {
         font-size: 12px;
     }
 
-    /* La carte occupe l'espace restant sous l'en-tête */
-    #map {
-        height: calc(100vh - 92px);
+    .contenu {
+        position: relative;
+        height: calc(100vh - 60px);
+    }
+
+    /* Le panneau se superpose à la carte et se replie */
+    .panneau {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 900;
+        width: 88%;
+        max-width: 340px;
+        transform: translateX(-100%);
+        transition: transform 0.2s ease;
+        box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .panneau-ouvert .panneau {
+        transform: translateX(0);
+    }
+
+    .bouton-panneau {
+        display: block;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 950;
+        padding: 9px 13px;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        font-weight: bold;
+        color: #263746;
+        background: #ffffff;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
     }
 }

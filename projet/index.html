@@ -35,7 +35,56 @@
         <p class="entete-sous-titre">Villes et sites touristiques des cinq régions</p>
     </header>
 
-    <div id="map"></div>
+    <div class="contenu">
+
+        <!-- Bouton d'ouverture de la liste, visible uniquement sur mobile -->
+        <button
+            class="bouton-panneau"
+            id="bouton-panneau"
+            type="button"
+            aria-label="Ouvrir la liste des lieux"
+        >
+            ☰ Liste
+        </button>
+
+        <!-- Panneau latéral : recherche, onglets et liste des lieux -->
+        <aside class="panneau" aria-label="Liste des villes et des sites">
+            <div class="panneau-recherche">
+                <input
+                    id="recherche"
+                    type="search"
+                    placeholder="Rechercher un lieu…"
+                    aria-label="Rechercher un lieu"
+                >
+            </div>
+
+            <div class="onglets" role="tablist">
+                <button
+                    class="onglet onglet--actif"
+                    id="onglet-villes"
+                    role="tab"
+                    aria-selected="true"
+                    aria-controls="liste"
+                >
+                    Villes <span class="onglet-compte" id="compte-villes">0</span>
+                </button>
+                <button
+                    class="onglet"
+                    id="onglet-sites"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="liste"
+                >
+                    Sites <span class="onglet-compte" id="compte-sites">0</span>
+                </button>
+            </div>
+
+            <ul class="liste" id="liste"></ul>
+        </aside>
+
+        <!-- La carte -->
+        <div id="map"></div>
+    </div>
 
     <!-- Bibliothèque Leaflet -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
