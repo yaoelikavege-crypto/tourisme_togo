@@ -200,8 +200,14 @@ function chargerLieux(url) {
 Promise.all([chargerLieux("data/villes.json"), chargerLieux("data/sites.json")])
 
   .then(([villes, sites]) => {
-    // 1. Un groupe de calques pour tous les lieux
-    const lieuxLayer = L.layerGroup().addTo(map);
+    // 1. Regroupement : les marqueurs proches fusionnent en un seul rond numéroté.
+    //    Sans ça, les 13 lieux du Grand Lomé s'empilent les uns sur les autres.
+    const lieuxLayer = L.markerClusterGroup({
+      showCoverageOnHover: false, // pas de polygone bleu au survol
+      maxClusterRadius: 45, // rayon de fusion, en pixels
+      spiderfyOnMaxZoom: true, // au zoom max, les marqueurs serrés s'écartent en araignée
+      disableClusteringAtZoom: 13, // au-delà, chaque lieu a son propre marqueur
+    });
 
     // 2. Un marqueur par lieu, ville ou site
     const lieux = villes.concat(sites);
@@ -213,11 +219,15 @@ Promise.all([chargerLieux("data/villes.json"), chargerLieux("data/sites.json")])
           ? `site-${lieu.type}`
           : lieu.categorie;
       const icone = icones[cle] || icones.site;
+
       L.marker([lieu.latitude, lieu.longitude], { icon: icone })
-        .addTo(lieuxLayer)
         .bindPopup(construireFiche(lieu), { maxWidth: 280 })
-        .bindTooltip(lieu.nom);
+        .bindTooltip(lieu.nom)
+        .addTo(lieuxLayer);
     });
+
+    // 3. Un seul ajout à la carte, une fois les marqueurs créés
+    lieuxLayer.addTo(map);
 
     console.log(
       `${villes.length} ville(s) et ${sites.length} site(s) ajoutés à la carte.`,

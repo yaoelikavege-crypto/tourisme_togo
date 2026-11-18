@@ -5,12 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Découvrir le Togo</title>
+    <title>Découvrir le Togo — carte interactive</title>
+    <meta name="description" content="Carte interactive du Togo : 24 villes et 27 sites touristiques, des cascades de Kpalimé au Koutammakou.">
 
     <!-- CSS de Leaflet -->
     <link
         rel="stylesheet"
         href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <!-- CSS du regroupement de marqueurs -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+    >
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
     >
 
     <!-- Notre CSS -->
@@ -19,12 +30,18 @@
 
 <body>
 
-    <h1>Découvrir le Togo</h1>
+    <header class="entete">
+        <h1>Découvrir le Togo</h1>
+        <p class="entete-sous-titre">Villes et sites touristiques des cinq régions</p>
+    </header>
 
     <div id="map"></div>
 
     <!-- Bibliothèque Leaflet -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Plugin de regroupement des marqueurs -->
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
     <!-- Notre JavaScript -->
     <script src="js/app.js"></script>
