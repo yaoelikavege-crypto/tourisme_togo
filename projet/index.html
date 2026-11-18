@@ -2,32 +2,65 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Découvrir le Togo</title>
+  <title>Tourisme Togo — Le Togo, une terre de découvertes</title>
+  <meta name="description" content="Découvrez le Togo : 24 villes et 27 sites touristiques, les cinq régions, les circuits et le patrimoine culturel togolais.">
+  <meta name="theme-color" content="#14532D">
 
-    <!-- CSS de Leaflet -->
-    <link
-        rel="stylesheet"
-        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    >
+  <!-- Open Graph -->
+  <meta property="og:title" content="Tourisme Togo — Le Togo, une terre de découvertes">
+  <meta property="og:description" content="Carte interactive, sites naturels, patrimoine et circuits à travers les cinq régions du Togo.">
+  <meta property="og:type" content="website">
 
-    <!-- Notre CSS -->
-    <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="/src/styles/main.css">
 </head>
-
 <body>
 
-    <h1>Découvrir le Togo</h1>
+  <a class="lien-evitement" href="#contenu">Aller au contenu</a>
 
-    <div id="map"></div>
+  <header class="topbar" id="topbar">
+    <div class="topbar-inner">
+      <a class="logo" href="#/" aria-label="Tourisme Togo, accueil">
+        <span class="logo-marque" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+            <path d="M16 3c5 0 9 4 9 9 0 7-9 17-9 17S7 19 7 12c0-5 4-9 9-9Z" fill="#D9A441"/>
+            <circle cx="16" cy="12" r="3.6" fill="#14532D"/>
+          </svg>
+        </span>
+        <span class="logo-texte">
+          <strong>TOURISME</strong> TOGO
+        </span>
+      </a>
 
-    <!-- Bibliothèque Leaflet -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+      <nav class="nav" id="nav" aria-label="Navigation principale">
+        <a href="#/" data-route="accueil">Accueil</a>
+        <a href="#/explorer" data-route="explorer">Explorer</a>
+        <a href="#/regions" data-route="regions">Régions</a>
+        <a href="#/destinations" data-route="destinations">Destinations</a>
+        <a href="#/circuits" data-route="circuits">Circuits</a>
+        <a href="#/culture" data-route="culture">Culture &amp; Patrimoine</a>
+        <a href="#/a-propos" data-route="a-propos">À propos</a>
+      </nav>
 
-    <!-- Notre JavaScript -->
-    <script src="js/app.js"></script>
+      <button class="nav-burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
 
+  <main id="contenu" class="contenu"></main>
+
+  <footer class="pied" id="pied"></footer>
+
+  <script type="module" src="/src/main.js"></script>
 </body>
 </html>
