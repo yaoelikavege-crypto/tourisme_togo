@@ -19,7 +19,7 @@
         "latitude": 7.0059,
         "longitude": 0.6472,
         "description": "Chute d'eau à 611 m d'altitude près de Kpimé-Séva, liée au barrage hydroélectrique de 1962. Accès par un sentier forestier ombragé.",
-        "image": "assets/images/sites/tsevie.jpg"
+        "image": "assets/images/sites/cascade_kpime.jpg"
     },
     {
         "id": 3,
@@ -30,7 +30,7 @@
         "latitude": 6.8722,
         "longitude": 0.7482,
         "description": "Point culminant du Togo (986 m). Randonnée de 3 à 4 heures à travers caféiers et cacaoyers, vue sur le Ghana par temps clair.",
-        "image": "assets/images/sites/tsevie.jpg"
+        "image": "assets/images/sites/mont_agou.jpg"
     },
     {
         "id": 4,
@@ -52,7 +52,7 @@
         "latitude": 7.5833,
         "longitude": 0.6086,
         "description": "Chutes près de Badou, dans l'ouest des Plateaux, au cœur de la zone café-cacao. Point de départ de randonnées en forêt.",
-        "image": "assets/images/sites/tsevie.jpg"
+        "image": "assets/images/sites/chutes_badou.jpg"
     },
     {
         "id": 6,
@@ -63,7 +63,7 @@
         "latitude": 8.7500,
         "longitude": 0.750,
         "description": "Plus grand parc national du Togo (261 534 ha), candidat au patrimoine mondial. Savane, forêts-galeries et inselbergs ; éléphants, buffles et antilopes.",
-        "image": "assets/images/sites/tsevie.jpg"
+        "image": "assets/images/sites/fazao_malfakassa.jpg"
     },
     {
         "id": 7,
@@ -74,7 +74,7 @@
         "latitude": 10.13776,
         "longitude": 0.64742,
         "description": "Parc du nord du pays, réputé pour ses éléphants. Peu d'infrastructures : visite en 4x4 avec un guide local.",
-        "image": "assets/images/sites/tsevie.jpg"
+        "image": "assets/images/sites/parc_keran.jpg"
     },
     {
         "id": 8,
@@ -85,7 +85,7 @@
         "latitude": 10.8300,
         "longitude": 0.2500,
         "description": "Petit parc national de 16,5 km² près de Dapaong, en pleine savane. Animaux réintroduits et observation facile.",
-        "image": "assets/images/sites/tsevie.jpg"
+        "image": "assets/images/sites/#.jpg"
     },
     {
         "id": 9,
@@ -96,7 +96,7 @@
         "latitude": 10.6711,
         "longitude": 0.1414,
         "description": "Grottes du massif de Bombouaka, à 33 km de Dapaong (préfecture de Tandjouaré). Site archéologique et refuge historique des populations locales.",
-        "image": "assets/images/sites/tsevie.jpg"
+        "image": "assets/images/sites/grottes_nok.jpg"
     },
     {
         "id": 10,
@@ -107,7 +107,7 @@
         "latitude": 6.2600,
         "longitude": 1.4000,
         "description": "Lagune côtière traversée en pirogue vers Togoville. Observation d'oiseaux et pêche traditionnelle sur pilotis.",
-        "image": "assets/images/sites/tsevie.jpg"
+        "image": "assets/images/sites/lac_togo.jpg"
     },
     {
         "id": 11,
@@ -118,7 +118,7 @@
         "latitude": 9.7667,
         "longitude": 1.0500,
         "description": "Inscrit au patrimoine mondial de l'UNESCO en 2004. Pays des Batammariba et de ses maisons-tours en terre, les takienta, toujours habitées.",
-        "image": "assets/images/sites/tsevie.jpg"
+        "image": "assets/images/sites/koutammakou.jpg"
     },
     {
         "id": 12,
@@ -129,7 +129,7 @@
         "latitude": 6.2337,
         "longitude": 1.4781,
         "description": "Village historique au bord du lac Togo, où le traité de protectorat allemand fut signé en 1884. Haut lieu du culte vaudou.",
-        "image": "assets/images/sites/tsevie.jpg"
+        "image": "assets/images/sites/togoville.jpg"
     },
     {
         "id": 13,
@@ -140,7 +140,7 @@
         "latitude": 6.2038,
         "longitude": 1.4769,
         "description": "Maison Wood, construite en 1835 par le négociant écossais John Henry Wood. Sa cave de 1,50 m de haut servait à détenir les captifs avant la traversée.",
-        "image": "assets/images/sites/tsevie.jpg"
+        "image": "assets/images/sites/maison_esclaves_agbodrafo.jpg"
     },
     {
         "id": 14,
@@ -151,7 +151,7 @@
         "latitude": 6.9463,
         "longitude": 1.1689,
         "description": "Vestiges de l'enceinte d'Agbogbo, liée à l'origine du peuple éwé. Célèbre fête Agbogbozan chaque mois d'août.",
-        "image": "assets/images/sites/tsevie.jpg"
+        "image": "assets/images/sites/murailles_agbogbo.jpg"
     },
     {
         "id": 15,
@@ -162,7 +162,7 @@
         "latitude": 6.1417,
         "longitude": 1.2500,
         "description": "Marché vaudou du nord de Lomé : plantes médicinales, talismans et objets rituels. Visite guidée vivement recommandée.",
-        "image": "assets/images/sites/tsevie.jpg"
+        "image": "assets/images/sites/marche_akodessewa.jpg"
     },
     {
         "id": 16,
@@ -173,7 +173,7 @@
         "latitude": 6.1300,
         "longitude": 1.2150,
         "description": "Collections d'ethnographie, d'art et d'histoire retraçant les cultures du pays, au centre de Lomé.",
-        "image": "assets/images/sites/tsevie.jpg"
+        "image": "assets/images/sites/#.jpg"
     },
     {
         "id": 17,
@@ -184,7 +184,7 @@
         "latitude": 6.1345,
         "longitude": 1.2130,
         "description": "Monument commémorant l'indépendance de 1960, place de l'Indépendance à Lomé. Point de départ de la visite du centre-ville.",
-        "image": "assets/images/sites/tsevie.jpg"
+        "image": "assets/images/sites/mont_agou.jpg"
     },
     {
         "id": 18,
@@ -195,7 +195,7 @@
         "latitude": 6.2340,
         "longitude": 1.4790,
         "description": "Résidence des rois de Togoville, où fut signé le traité de 1884 avec l'explorateur Gustav Nachtigal. Conserve le trône du roi Mlapa III.",
-        "image": "assets/images/sites/tsevie.jpg"
+        "image": "assets/images/sites/#.jpg"
     },
     {
         "id": 19,
@@ -206,7 +206,7 @@
         "latitude": 6.2330,
         "longitude": 1.4770,
         "description": "Église de Togoville liée à l'apparition mariale de 1973, devenue un lieu de pèlerinage. Peintures murales de saints africains.",
-        "image": "assets/images/sites/tsevie.jpg"
+        "image": "assets/images/sites/cathedrale_notre_dame_lac.jpg"
     },
     {
         "id": 20,
@@ -217,7 +217,7 @@
         "latitude": 6.1667,
         "longitude": 1.3333,
         "description": "Plage de sable à une quinzaine de kilomètres à l'est de Lomé, bordée de cocotiers. Restaurants de poisson braisé.",
-        "image": "assets/images/sites/tsevie.jpg"
+        "image": "assets/images/sites/plage_baguida.jpg"
     },
     {
         "id": 21,
@@ -228,7 +228,7 @@
         "latitude": 6.2020,
         "longitude": 1.4850,
         "description": "Plage de cocotiers à quelques centaines de mètres de la Maison des esclaves : mer, histoire et pirogues sur le lac Togo.",
-        "image": "assets/images/sites/tsevie.jpg"
+        "image": "assets/images/sites/plage_agbodrafo.jpg"
     },
     
   {
@@ -240,7 +240,7 @@
     "latitude": 10.66781,
     "longitude": 0.69859,
     "description": "Vaste aire naturelle protégée du nord du Togo, caractérisée par ses savanes, ses zones humides et sa biodiversité.",
-    "image": "assets/images/sites/oti-mandouri.jpg"
+    "image": "assets/images/sites/#.jpg"
   },
   {
     "id": 23,
@@ -251,7 +251,7 @@
     "latitude": 7.41803,
     "longitude": 1.42882,
     "description": "Barrage hydroélectrique construit sur le fleuve Mono, contribuant à la production d'électricité et au développement des activités de pêche et d'irrigation.",
-    "image": "assets/images/sites/nangbeto.jpg"
+    "image": "assets/images/sites/#.jpg"
   },
   {
     "id": 24,
@@ -262,7 +262,7 @@
     "latitude": 6.8938,
     "longitude": 1.482,
     "description": "Aire forestière protégée située dans le complexe de Togodo, au sud-est du Togo, reconnue pour son patrimoine naturel et sa biodiversité.",
-    "image": "assets/images/sites/togodo-nord.jpg"
+    "image": "assets/images/sites/#.jpg"
   },
   {
     "id": 25,
@@ -273,7 +273,7 @@
     "latitude": 6.8457,
     "longitude": 1.5212,
     "description": "Espace naturel protégé du complexe forestier de Togodo, abritant une diversité de milieux naturels et d'espèces animales.",
-    "image": "assets/images/sites/togodo-sud.jpg"
+    "image": "assets/images/sites/#.jpg"
   },
   {
     "id": 26,
@@ -284,7 +284,7 @@
     "latitude": 6.30,
     "longitude": 1.20,
     "description": "Vaste zone de plaine traversée par la rivière Zio, caractérisée par des milieux humides et une biodiversité importante. Coordonnées indicatives d'un point de repère, et non du centre officiel de la vallée.",
-    "image": "assets/images/sites/vallee-zio.jpg"
+    "image": "assets/images/sites/#.jpg"
   },
   {
     "id": 27,
@@ -295,6 +295,6 @@
     "latitude": 7.504743,
     "longitude": 1.170927,
     "description": "Vestiges de l'ancienne station allemande de télégraphie sans fil construite entre 1911 et 1914. Le site conserve notamment des ruines de bâtiments, des pylônes de communication et la tombe d'un officier allemand.",
-    "image": "assets/images/sites/kamina.jpg"
+    "image": "assets/images/sites/#.jpg"
   }
 ]
