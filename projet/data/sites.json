@@ -41,7 +41,7 @@
         "latitude": 7.0200,
         "longitude": 0.6200,
         "description": "Une des cascades des environs de Kpalimé, citée avec Djokoto et Akatsé. Accès par piste forestière, bassin de baignade.",
-        "image": "assets/images/sites/#.jpg"
+        "image": "assets/images/sites/cascade_akakpotoe.webp"
     },
     {
         "id": 5,
@@ -85,7 +85,7 @@
         "latitude": 10.8300,
         "longitude": 0.2500,
         "description": "Petit parc national de 16,5 km² près de Dapaong, en pleine savane. Animaux réintroduits et observation facile.",
-        "image": "assets/images/sites/#.jpg"
+        "image": "assets/images/sites/ParcdelaFosseauxLions.jpg"
     },
     {
         "id": 9,
@@ -195,7 +195,7 @@
         "latitude": 6.2340,
         "longitude": 1.4790,
         "description": "Résidence des rois de Togoville, où fut signé le traité de 1884 avec l'explorateur Gustav Nachtigal. Conserve le trône du roi Mlapa III.",
-        "image": "assets/images/sites/#.jpg"
+        "image": "assets/images/sites/PalaisroyaldeTogoville.jpg.jpg"
     },
     {
         "id": 19,
@@ -240,7 +240,7 @@
     "latitude": 10.66781,
     "longitude": 0.69859,
     "description": "Vaste aire naturelle protégée du nord du Togo, caractérisée par ses savanes, ses zones humides et sa biodiversité.",
-    "image": "assets/images/sites/#.jpg"
+    "image": "assets/images/sites/reserve__oti_mandouri.jpg"
   },
   {
     "id": 23,
@@ -251,7 +251,7 @@
     "latitude": 7.41803,
     "longitude": 1.42882,
     "description": "Barrage hydroélectrique construit sur le fleuve Mono, contribuant à la production d'électricité et au développement des activités de pêche et d'irrigation.",
-    "image": "assets/images/sites/#.jpg"
+    "image": "assets/images/sites/BarragedeNangbéto.jpg.jpg"
   },
   {
     "id": 24,
@@ -262,7 +262,7 @@
     "latitude": 6.8938,
     "longitude": 1.482,
     "description": "Aire forestière protégée située dans le complexe de Togodo, au sud-est du Togo, reconnue pour son patrimoine naturel et sa biodiversité.",
-    "image": "assets/images/sites/#.jpg"
+    "image": "assets/images/sites/ParcnationaldeTogodoNord.jpg.jpg"
   },
   {
     "id": 25,
@@ -273,7 +273,7 @@
     "latitude": 6.8457,
     "longitude": 1.5212,
     "description": "Espace naturel protégé du complexe forestier de Togodo, abritant une diversité de milieux naturels et d'espèces animales.",
-    "image": "assets/images/sites/#.jpg"
+    "image": "assets/images/sites/ParcnationaldeTogodoSud.jpg"
   },
   {
     "id": 26,
@@ -284,7 +284,7 @@
     "latitude": 6.30,
     "longitude": 1.20,
     "description": "Vaste zone de plaine traversée par la rivière Zio, caractérisée par des milieux humides et une biodiversité importante. Coordonnées indicatives d'un point de repère, et non du centre officiel de la vallée.",
-    "image": "assets/images/sites/#.jpg"
+    "image": "assets/images/sites/ValleeduZio.jpg"
   },
   {
     "id": 27,
@@ -295,6 +295,6 @@
     "latitude": 7.504743,
     "longitude": 1.170927,
     "description": "Vestiges de l'ancienne station allemande de télégraphie sans fil construite entre 1911 et 1914. Le site conserve notamment des ruines de bâtiments, des pylônes de communication et la tombe d'un officier allemand.",
-    "image": "assets/images/sites/#.jpg"
+    "image": "assets/images/sites/VestigesdelastationradioallemandedeKamina.jpg"
   }
 ]
