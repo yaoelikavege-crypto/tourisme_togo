@@ -1,0 +1,24 @@
+{
+  "name": "tourisme-togo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Plateforme de découverte du patrimoine touristique togolais",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4",
+    "leaflet.markercluster": "^1.5.3"
+  },
+  "devDependencies": {
+    "vite": "^8.3.8"
+  },
+  "overrides": {
+    "picomatch": "^4.0.3",
+    "tinyglobby": "^0.2.16",
+    "fdir": "^6.5.0"
+  }
+}

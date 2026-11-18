@@ -67,3 +67,8 @@ venv/
 # Note : les GeoJSON réellement servis par l'application
 # (projet/data/*.geojson) restent versionnés, car ils sont
 # nécessaires au fonctionnement de la carte.
+
+# Dépendances et build de la plateforme Vite
+projet/node_modules/
+projet/dist/
+projet/.vite/

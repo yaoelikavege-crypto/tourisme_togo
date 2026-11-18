@@ -2,98 +2,65 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Découvrir le Togo — carte interactive</title>
-    <meta name="description" content="Carte interactive du Togo : 24 villes et 27 sites touristiques, des cascades de Kpalimé au Koutammakou.">
+  <title>Tourisme Togo — Le Togo, une terre de découvertes</title>
+  <meta name="description" content="Découvrez le Togo : 24 villes et 27 sites touristiques, les cinq régions, les circuits et le patrimoine culturel togolais.">
+  <meta name="theme-color" content="#14532D">
 
-    <!-- CSS de Leaflet -->
-    <link
-        rel="stylesheet"
-        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    >
+  <!-- Open Graph -->
+  <meta property="og:title" content="Tourisme Togo — Le Togo, une terre de découvertes">
+  <meta property="og:description" content="Carte interactive, sites naturels, patrimoine et circuits à travers les cinq régions du Togo.">
+  <meta property="og:type" content="website">
 
-    <!-- CSS du regroupement de marqueurs -->
-    <link
-        rel="stylesheet"
-        href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
-    >
-    <link
-        rel="stylesheet"
-        href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
-    >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  >
 
-    <!-- Notre CSS -->
-    <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/src/styles/main.css">
 </head>
-
 <body>
 
-    <header class="entete">
-        <h1>Découvrir le Togo</h1>
-        <p class="entete-sous-titre">Villes et sites touristiques des cinq régions</p>
-    </header>
+  <a class="lien-evitement" href="#contenu">Aller au contenu</a>
 
-    <div class="contenu">
+  <header class="topbar" id="topbar">
+    <div class="topbar-inner">
+      <a class="logo" href="#/" aria-label="Tourisme Togo, accueil">
+        <span class="logo-marque" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+            <path d="M16 3c5 0 9 4 9 9 0 7-9 17-9 17S7 19 7 12c0-5 4-9 9-9Z" fill="#D9A441"/>
+            <circle cx="16" cy="12" r="3.6" fill="#14532D"/>
+          </svg>
+        </span>
+        <span class="logo-texte">
+          <strong>TOURISME</strong> TOGO
+        </span>
+      </a>
 
-        <!-- Bouton d'ouverture de la liste, visible uniquement sur mobile -->
-        <button
-            class="bouton-panneau"
-            id="bouton-panneau"
-            type="button"
-            aria-label="Ouvrir la liste des lieux"
-        >
-            ☰ Liste
-        </button>
+      <nav class="nav" id="nav" aria-label="Navigation principale">
+        <a href="#/" data-route="accueil">Accueil</a>
+        <a href="#/explorer" data-route="explorer">Explorer</a>
+        <a href="#/regions" data-route="regions">Régions</a>
+        <a href="#/destinations" data-route="destinations">Destinations</a>
+        <a href="#/circuits" data-route="circuits">Circuits</a>
+        <a href="#/culture" data-route="culture">Culture &amp; Patrimoine</a>
+        <a href="#/a-propos" data-route="a-propos">À propos</a>
+      </nav>
 
-        <!-- Panneau latéral : recherche, onglets et liste des lieux -->
-        <aside class="panneau" aria-label="Liste des villes et des sites">
-            <div class="panneau-recherche">
-                <input
-                    id="recherche"
-                    type="search"
-                    placeholder="Rechercher un lieu…"
-                    aria-label="Rechercher un lieu"
-                >
-            </div>
-
-            <div class="onglets" role="tablist">
-                <button
-                    class="onglet onglet--actif"
-                    id="onglet-villes"
-                    role="tab"
-                    aria-selected="true"
-                    aria-controls="liste"
-                >
-                    Villes <span class="onglet-compte" id="compte-villes">0</span>
-                </button>
-                <button
-                    class="onglet"
-                    id="onglet-sites"
-                    role="tab"
-                    aria-selected="false"
-                    aria-controls="liste"
-                >
-                    Sites <span class="onglet-compte" id="compte-sites">0</span>
-                </button>
-            </div>
-
-            <ul class="liste" id="liste"></ul>
-        </aside>
-
-        <!-- La carte -->
-        <div id="map"></div>
+      <button class="nav-burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </header>
 
-    <!-- Bibliothèque Leaflet -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <main id="contenu" class="contenu"></main>
 
-    <!-- Plugin de regroupement des marqueurs -->
-    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <footer class="pied" id="pied"></footer>
 
-    <!-- Notre JavaScript -->
-    <script src="js/app.js"></script>
-
+  <script type="module" src="/src/main.js"></script>
 </body>
 </html>
