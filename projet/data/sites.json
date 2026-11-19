@@ -173,7 +173,7 @@
         "latitude": 6.1300,
         "longitude": 1.2150,
         "description": "Collections d'ethnographie, d'art et d'histoire retraçant les cultures du pays, au centre de Lomé.",
-        "image": "assets/images/sites/#.jpg"
+        "image": "assets/images/sites/musee_national.webp"
     },
     {
         "id": 17,
@@ -195,7 +195,7 @@
         "latitude": 6.2340,
         "longitude": 1.4790,
         "description": "Résidence des rois de Togoville, où fut signé le traité de 1884 avec l'explorateur Gustav Nachtigal. Conserve le trône du roi Mlapa III.",
-        "image": "assets/images/sites/PalaisroyaldeTogoville.jpg.jpg"
+        "image": "assets/images/sites/PalaisroyaldeTogoville.jpg"
     },
     {
         "id": 19,
@@ -251,7 +251,7 @@
     "latitude": 7.41803,
     "longitude": 1.42882,
     "description": "Barrage hydroélectrique construit sur le fleuve Mono, contribuant à la production d'électricité et au développement des activités de pêche et d'irrigation.",
-    "image": "assets/images/sites/BarragedeNangbéto.jpg.jpg"
+    "image": "assets/images/sites/BarragedeNangbéto.jpg"
   },
   {
     "id": 24,
@@ -262,7 +262,7 @@
     "latitude": 6.8938,
     "longitude": 1.482,
     "description": "Aire forestière protégée située dans le complexe de Togodo, au sud-est du Togo, reconnue pour son patrimoine naturel et sa biodiversité.",
-    "image": "assets/images/sites/ParcnationaldeTogodoNord.jpg.jpg"
+    "image": "assets/images/sites/ParcnationaldeTogodoNord.jpg"
   },
   {
     "id": 25,
