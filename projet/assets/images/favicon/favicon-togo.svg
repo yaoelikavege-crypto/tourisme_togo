@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="512" height="512" viewBox="0 0 64 64"
+     role="img" aria-label="Symbole de localisation aux couleurs du Togo">
+  <title>Repère de localisation — Togo</title>
+  <g>
+    <!-- Silhouette du repère conservée depuis l’icône de référence -->
+    <path fill="#006A4E" fill-rule="evenodd" d="
+      M18.69,8.4h0a22.16,22.16,0,0,0-4,31.57L30,59.11a2.51,2.51,0,0,0,3.92,0L49.29,40a22.16,22.16,0,0,0-4-31.57h0A22.16,22.16,0,0,0,18.69,8.4ZM30.31,37.89A13,13,0,1,1,44.89,23.31,13,13,0,0,1,30.31,37.89Z"/>
+    <!-- Disque solaire dans l’ouverture centrale -->
+    <circle cx="32.6" cy="24.6" r="12.45" fill="#FFCE00"/>
+    <!-- Cœur de la référence, recoloré en rouge -->
+    <path fill="#D21034" d="
+      M32.89,20.94l-.92.92-1.09-1.09a4.33,4.33,0,0,0-6.29.17,
+      4.5,4.5,0,0,0,.33,6.13L30.87,33a1.56,1.56,0,0,0,2.21,0l6.11-6.11A4.33,4.33,0,0,0,39,20.6,4.5,4.5,0,0,0,32.89,20.94Z"/>
+    <!-- Petit éclat blanc pour préserver la lisibilité à petite taille -->
+    <path fill="#FFFFFF" d="M26.1 23.2c.18-1.05 1.05-1.78 2.1-1.78.55 0 1.04.2 1.43.59l.54.54-.98.98-.54-.54a.63.63 0 0 0-.45-.19c-.34 0-.62.24-.68.57z"/>
+  </g>
+</svg>

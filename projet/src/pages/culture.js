@@ -36,7 +36,7 @@ const RUBRIQUES = [
   {
     titre: "Fêtes et traditions",
     texte:
-      "De la fête de l'Adossa chez les Tem à l'Agbogbozan de Notsé, en passant par l'Evala du pays kabyè, le calendrier togolais est rythmé par des cérémonies communautaires. Les dates varient chaque année : renseignez-vous auprès des offices de tourisme locaux.",
+      "De la fête de l'Adossa chez les Tem à l'Agbogbozan de Notsé, en passant par l'Evala du pays kabyè,Adzifozan et Ayizan a Tsevié, le calendrier togolais est rythmé par des cérémonies communautaires. Les dates varient chaque année : renseignez-vous auprès des offices de tourisme locaux ou aupres du ministere du tourisme.",
     lieuCible: ["site", 14],
   },
 ];
@@ -48,7 +48,7 @@ const GASTRONOMIE = [
       "Pâte d'igname ou de manioc pilée, servie avec une sauce à base d'arachide, de tomate ou de gombo.",
   },
   {
-    nom: "Abla",
+    nom: "Ablo",
     texte:
       "Beignets de maïs fermenté cuits à la vapeur dans des feuilles, souvent vendus au bord des routes.",
   },
@@ -68,7 +68,9 @@ export default async function pageCulture({ conteneur, donnees }) {
   const patrimoine = donnees.lieux.filter((l) => l.type === "patrimoine");
 
   const lienLieu = ([categorie, id]) => {
-    const lieu = donnees.lieux.find((l) => l.categorie === categorie && l.id === id);
+    const lieu = donnees.lieux.find(
+      (l) => l.categorie === categorie && l.id === id,
+    );
     if (!lieu) return "";
     return `<a class="carte-lien" href="#/destination/${lieu.categorie}/${lieu.id}">Voir la fiche : ${echapper(lieu.nom)} →</a>`;
   };

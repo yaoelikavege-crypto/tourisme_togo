@@ -441,6 +441,7 @@ p { margin: 0 0 1em; }
   color: var(--gris-texte);
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -756,6 +757,7 @@ p { margin: 0 0 1em; }
   color: rgba(255, 255, 255, 0.88);
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
